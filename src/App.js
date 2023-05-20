@@ -5,10 +5,10 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-import WitherAPIAPP from "./WetherAPi/WitherAPIAPP";
+
 import Game from "./Game/Game";
 import HeaderHandel from "./Game/header";
-import CardDetails from "./WetherAPi/CardDetails";
+
 const App = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(

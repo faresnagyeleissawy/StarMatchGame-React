@@ -45,7 +45,11 @@ const StarMatch = () => {
   //computation based on state
   const areWrong = utils.sum(candideteNum) > stars;
   const gameStatus =
-    availableNum.length === 0 ? "win" : timeover === 0 ? "lost" : "active";
+    availableNum.length === 0 || stars === 0
+      ? "win"
+      : timeover === 0
+      ? "lost"
+      : "active";
   //use effect to remove and creat settimeout side effect
   useEffect(() => {
     if (timeover > 0) {
@@ -102,7 +106,13 @@ const StarMatch = () => {
       <div className="body">
         <div className="left">
           {gameStatus !== "active" ? (
-            <PlayAgain onClick={reSetState} State={gameStatus} />
+            <>
+              <PlayAgain
+                onClick={reSetState}
+                setTimeover={() => setTimeover(0)}
+                State={gameStatus}
+              />
+            </>
           ) : (
             <DisplayStars count={stars} />
           )}
